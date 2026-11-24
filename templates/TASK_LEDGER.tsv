@@ -1,0 +1,3 @@
+﻿task_id	status	deliverable	evidence	note
+EXAMPLE-01	VERIFIED	figures/Fig01.png	figures/Fig01.png	replace with a real task row
+EXAMPLE-02	BLOCKED	figures/Fig02.png		missing named source table; independent tasks continue

@@ -1,0 +1,21 @@
+name: Validate skill
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Structural check
+        run: python3 scripts/check_skill.py .
+      - name: Offline tests
+        run: python3 -m unittest discover -s tests -v
+      - name: Demonstrate validator on a clean fixture
+        run: python3 -m unittest tests.test_scripts.TestValidator.test_validator_accepts_valid_bundle -v
